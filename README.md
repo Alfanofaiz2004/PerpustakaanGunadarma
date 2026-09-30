@@ -4,7 +4,7 @@ Aplikasi sistem informasi peminjaman buku perpustakaan berbasis web yang diranca
 
 ---
 
-## 📌 Ringkasan Sistem & Peran Pengguna (Role-Based Access Control)
+##  Ringkasan Sistem & Peran Pengguna (Role-Based Access Control)
 
 Aplikasi menerapkan sistem pembatasan akses berbasis peran (*Role-Based Access Control / RBAC*) yang diisolasi ketat di level backend:
 
@@ -30,7 +30,7 @@ Aplikasi menerapkan sistem pembatasan akses berbasis peran (*Role-Based Access C
 
 ---
 
-## 🛡️ Standar Keamanan Backend & Kepatuhan Rubrik Evaluasi
+##  Standar Keamanan Backend & Kepatuhan Rubrik Evaluasi
 
 1. **Proteksi Akses URL Backend (HTTP 403 Forbidden)**:
    - Pengguna dengan peran `peminjam` yang mencoba mengakses URL rute admin (`/admin/*`) secara sengaja maupun tidak sengaja akan **langsung ditolak dengan status HTTP 403 Forbidden** melalui middleware `CheckRole` (bukan sekadar pengalihan diam-diam).
@@ -50,7 +50,7 @@ Aplikasi menerapkan sistem pembatasan akses berbasis peran (*Role-Based Access C
 
 ---
 
-## 🎨 Tampilan UI/UX & Desain Antarmuka
+##  Tampilan UI/UX & Desain Antarmuka
 
 - **Tipografi Bersih & Modern**: Menggunakan Google Font **Open Sans** di seluruh antarmuka aplikasi.
 - **Ikon Vektor Ringan**: Seluruh elemen visual menggunakan **Inline SVG** yang tajam, responsif, dan bebas ketergantungan CDN eksternal.
@@ -59,7 +59,7 @@ Aplikasi menerapkan sistem pembatasan akses berbasis peran (*Role-Based Access C
 
 ---
 
-## 🔑 Kredensial Akun Pengujian (Demo Accounts)
+##  Kredensial Akun Pengujian (Demo Accounts)
 
 Data akun pengujian telah disediakan secara otomatis melalui Database Seeder (`php artisan db:seed`):
 
@@ -72,7 +72,7 @@ Data akun pengujian telah disediakan secara otomatis melalui Database Seeder (`p
 
 ---
 
-## 🚀 Panduan Instalasi & Menjalankan Aplikasi
+##  Panduan Instalasi & Menjalankan Aplikasi
 
 ### 1. Prasyarat Sistem
 - **PHP** >= 8.2 (Mendukung PHP 8.2 dan PHP 8.3)
@@ -109,11 +109,11 @@ php artisan serve
 ```
 
 Aplikasi dapat langsung diakses melalui peramban web pada alamat:
-👉 **`http://127.0.0.1:8000`**
+ **`http://127.0.0.1:8000`**
 
 ---
 
-## 🛠️ Stack Teknologi
+##  Stack Teknologi
 
 - **Backend Framework**: Laravel 11 (PHP 8.3)
 - **Autentikasi**: Laravel Breeze (Blade Stack dengan kustomisasi Dual Login Email/NPM)
@@ -123,7 +123,7 @@ Aplikasi dapat langsung diakses melalui peramban web pada alamat:
 
 ---
 
-## 📝 Catatan Teknis & Penanganan Masalah Khusus
+##  Catatan Teknis & Penanganan Masalah Khusus
 
 1. **Penanganan Cross-Host Session Cookies pada Redirect Notifikasi**:
    - *Masalah*: Saat admin membuat notifikasi, helper `route()` dapat menyimpan URL absolut seperti `http://localhost:8000/peminjam/loans`. Jika mahasiswa mengakses web melalui `http://127.0.0.1:8000`, browser berpindah origin, mengakibatkan sesi cookie tidak terbaca dan memicu redirect tidak terduga ke halaman `/login`.
